@@ -1,10 +1,36 @@
 .App {
     text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
 }
 
 h1 {
-    font-family: 'Bigelow Rules';
-    font-size: 72px;
+    font-size: 30px;
     color: #0ccac4;
 }
+
+.readerBook {
+    color: #ffa500;
+}
   
+#header,#footer,#content {
+    position:absolute;
+    right:0;
+    left:0; 
+    background:#CCC
+}
+
+#header{
+    height:100px; top:0;
+ 
+ }
+
+ #content{
+    top:100px;
+    bottom:100px;
+      background:#DBEAF9;
+}
+
+#footer{
+    height:100px; bottom:0;
+}
