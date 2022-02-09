@@ -21,7 +21,8 @@ const App = () => {
                 <div>Contact for any UI/UX Frontend realted help in React, Angular or Java/ Sprint boot / Python</div>
                 <div>contact: suddu.ch@gmail.com</div>
                 <FloatingWhatsApp 
-                    phoneNumber="919989696056"  
+                    phoneNumber="919989696056"
+                    avatar={"https://avatars.githubusercontent.com/u/2115055?v=4"}
                     accountName="Sudarshan"
                     chatMessage="Hi Sudarshan, I saw your tech journal profile, need your help in following tech stack"
                     allowClickAway
