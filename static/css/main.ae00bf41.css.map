@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.ae00bf41.css","mappings":"AAAA,KACI,iBACJ,CAEA,GAGI,aAAc,CAFd,yBAA4B,CAC5B,cAEJ","sources":["App.css"],"sourcesContent":[".App {\r\n    text-align: center;\r\n}\r\n\r\nh1 {\r\n    font-family: 'Bigelow Rules';\r\n    font-size: 72px;\r\n    color: #0ccac4;\r\n}\r\n  "],"names":[],"sourceRoot":""}
