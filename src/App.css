@@ -12,6 +12,10 @@ h1 {
 .readerBook {
     color: #ffa500;
 }
+
+.mailId {
+    margin-left: 5px;
+}
   
 #header,#footer,#content {
     position:absolute;
@@ -25,10 +29,11 @@ h1 {
  
  }
 
- #content{
+ #content {
     top:100px;
     bottom:100px;
-      background:#DBEAF9;
+    background:#DBEAF9;
+    padding: 10px;
 }
 
 #footer{

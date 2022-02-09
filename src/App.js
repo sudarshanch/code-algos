@@ -1,7 +1,8 @@
 import React, { useState, Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpenReader, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import FloatingWhatsApp from 'react-floating-whatsapp';
+
 import './App.css';
 
 const App = () => {
@@ -16,10 +17,19 @@ const App = () => {
                     {appName}
                 </h1>
             </div>
-            <div id="content"></div>
+            <div id="content">
+                <iframe
+                    src="https://drive.google.com/file/d/1sHqRfRavSZ79sds9roDCb2A_77qAwORe/preview?usp=sharing"
+                    frameBorder="0"
+                    scrolling="auto"
+                    height="100%"
+                    width="55%"
+                ></iframe>
+            </div>
             <div id="footer">
-                <div>Contact for any UI/UX Frontend realted help in React, Angular or Java/ Sprint boot / Python</div>
-                <div>contact: suddu.ch@gmail.com</div>
+                <div>Contact for any help in Fullstack / Frontend development using React, Angular or Java/ Sprint boot / Python</div>
+                <span>Get in touch <FontAwesomeIcon icon={faPaperPlane} /></span>
+                <span className='mailId'><a href="mailto:suddu.ch@gmail.com">suddu.ch@gmail.com</a></span>
                 <FloatingWhatsApp 
                     phoneNumber="919989696056"
                     avatar={"https://avatars.githubusercontent.com/u/2115055?v=4"}
