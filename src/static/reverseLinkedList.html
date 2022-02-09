@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reverseList = function(head) {
+            if(head == null || head.next == null) {
+                return head
+            }
+            newHead = reverseList(head.next);
+            head.next.next = head;
+            head.next = null;
+            return newHead;
+        };
+
+        function reverseLI(head) {
+            if (head == null || head.next == null) {
+                return head
+            }
+            let prev = null;
+            let current = head;
+            while(current) {
+                let next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            return prev;
+        }
+    </script>
+</body>
+</html>

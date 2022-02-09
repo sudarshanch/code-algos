@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Async Await</title>
+
+</head>
+<body>
+    <h1>Async Await demo</h1>
+    <div id="demos">
+
+    </div>
+    <script>
+        console.log('Await');
+        const asyncFunc = async function() {
+            console.log('Async fun');
+            var aa1 = await fetch("https://api.github.com/users/sudarshanch/repos")
+                .then(resp => resp.json())
+                .then(repos => {
+                   document.getElementById("demos").innerHTML  = repos[0].assignees_url;
+                    console.log(repos[0].assignees_url);
+                });
+           // console.log(aa1)
+
+            var aa2 = await fetch("https://api.github.com/users/sudarshanch/repos");
+            var aa3= await aa2.json();
+
+            console.log("await till json done", aa3);
+        }
+        asyncFunc();
+
+        var readJson = require("./jsonResp.json");
+        const asyncJsonFile = async function() {
+            console.log('Async JSON file', readJson);
+        }
+        asyncJsonFile();
+    </script>
+</body>
+</html>

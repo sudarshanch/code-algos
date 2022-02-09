@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of intergers retun indices adds up to given target</title>
+</head>
+<body>
+    <script>
+
+        function addIndexes(nums, target) {
+            for (let p1=0; p1<nums.length; p1++) {
+                var targetToFind = target - nums[p1];
+                for (let p2=p1+1; p2<nums.length; p2++) {
+                    //console.log(targetToFind, nums[p2]);
+                    if(targetToFind == nums[p2]) {
+                        console.log(p1, p2);
+                        return [p1, p2];
+                    }
+                }
+            }
+            return null;
+        }
+
+        //addIndexes([19, 18, 10, 11, 2, 3], 13);
+
+        // optimal solution
+        function addIndexes(nums, target) {
+            let numsMap = new Map();
+            for (let p=0; p<nums.length; p++) {
+                var currentMapVal = numsMap.get(nums[p]);
+                if (currentMapVal) {
+                    console.log(currentMapVal, p);
+                    return p[currentMapVal, p];
+                } else {
+                    var numberToFind = target - nums[p];
+                    numsMap.set(numberToFind, p);
+                }
+            }
+            return null;
+        }
+        addIndexes([19, 18, 10, 11, 2, 3], 13);
+    </script>
+    
+</body>
+</html>

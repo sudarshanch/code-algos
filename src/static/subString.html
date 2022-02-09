@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function detectSubString(str, subStr) {
+            console.log('first one');
+            var j=0;
+            let idxOfStart = 0;
+            for (var i=0;i<str.length;i++) {
+                if (subStr[j] === str[i]) {
+                    j++;
+                } else {
+                    j = 0;
+                }
+                if(j===0) {
+                    idxOfStart = i;
+                } else if(j === subStr.length) {
+                    //console.log(str[j]);
+                    //console.log(j)
+                }
+            }
+           console.log(subStr.length);
+            for (var k=j; k<str.length;k++) {
+                console.log(str[k]);
+            }
+
+         return "detect"   
+        }
+
+        function detectSubString(str, subStr) {
+            console.log('second one');
+            var j=0;
+            let idxOfStart = 0;
+            for (var i=0;i<str.length;i++) {
+                if (subStr[j] === str[i]) {
+                    j++;
+                } else {
+                    j = 0;
+                }
+                if(j===0) {
+                    idxOfStart = i;
+                } else if(j === subStr.length) {
+                    //console.log(str[j]);
+                    //console.log(j)
+                }
+            }
+           console.log(subStr.length);
+            for (var k=j; k<str.length;k++) {
+                console.log(str[k]);
+            }
+
+         return "detect"   
+        }
+        detectSubString("yuueueLL", "eue");
+    </script>
+</body>
+</html>
+
+// [ "abc" , "bad" ,  "bat" , "tab" , "cab" , "bac" ]
+
+// [ ["abc" , "bac" , "cab" ] ,  ["bat" , "tab" ] ,  ["bad" ] ]

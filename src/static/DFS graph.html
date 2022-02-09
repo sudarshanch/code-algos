@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traverse a GRAPH</title>
+</head>
+<body>
+    <script>
+        function dfs(start, visited = new Set()) {
+            visited.add(start);
+
+            const destinations = travelList.get(start); // GET from starting point
+            for (const destination of destinations) {
+                if (destination == 'BKK') {
+                    console.log('DFS found it');
+                }
+                if (!visited.has(destination)) {
+                    dfs(destination, visited);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
