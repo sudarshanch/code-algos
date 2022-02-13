@@ -24,6 +24,7 @@ const App = () => {
                     scrolling="auto"
                     height="100%"
                     width="55%"
+                    title="profile"
                 ></iframe>
             </div>
             <div id="footer">
