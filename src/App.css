@@ -25,8 +25,8 @@ h1 {
 }
 
 #header{
-    height:100px; top:0;
- 
+    height:100px;
+    top:0;
  }
 
  #content {
@@ -37,5 +37,31 @@ h1 {
 }
 
 #footer{
-    height:100px; bottom:0;
+    height:100px; 
+    bottom:0;
+}
+
+.parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.child2 {
+    width: 90%;
+    height: 70vh;
+}
+
+.child1 {
+    width: 10%;
+    height: auto;
+    font-size: 20px;
+}
+
+section li {
+    list-style-type: none;
+}
+
+.floatingWhatsup {
+    height: 0%;
 }

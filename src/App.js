@@ -21,7 +21,7 @@ const App = () => {
                 <iframe
                     src="https://drive.google.com/file/d/1sHqRfRavSZ79sds9roDCb2A_77qAwORe/preview?usp=sharing"
                     frameBorder="0"
-                    scrolling="auto"
+                    scrolling="yes"
                     height="100%"
                     width="55%"
                     title="profile"
@@ -40,6 +40,7 @@ const App = () => {
                     notification
                     notificationDelay={60000} // 1 minute
                     notificationSound
+                    className='floatingWhatsup'
                 />
             </div>
         </div>
