@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadth first search of TREE</title>
+</head>
+<body>
+    <script>
+        let alternateBreadthFirstSearch = (tree, rootNode, searchValue) => {
+            // make a queue array
+            let queue = [];
+            let path = [];
+            // populate it with the node that will be the root of your search
+            queue.push(rootNode);
+
+            // search the queue until it is empty
+            while (queue.length > 0) {
+                // assign the top of the queue to variable currentNode
+                let currentNode = queue[0];
+                path.push(currentNode.value);
+
+                // if currentNode is the node we're searching for, break & alert
+                if (currentNode.value === searchValue) {
+                    return path;
+                }
+
+                // if currentNode has a left child node, add it to the queue.
+                if (currentNode.left !== null) {
+                    queue.push(tree[currentNode.left]);
+                }
+
+                // if currentNode has a right child node, add it to the queue.
+                if (currentNode.right !== null) {
+                    queue.push(tree[currentNode.right]);
+                }
+                // remove the currentNode from the queue.
+                queue.shift();
+            }
+            console.log("Sorry, no such node found :(");
+        };
+        /*
+
+     10
+    /  \
+   4    17          <-- remember this guy?
+  / \   / \
+ 1   9 12  18 
+
+        BreadthFirstSearch(tree, tree[10], "12");
+
+        > Current node is:10
+        > Current node is:4
+        > Current node is:17
+        > Current node is:1
+        > Current node is:9
+        > Current node is:12
+        > Found it!
+
+
+        BreadthFirstSearch(tree, tree[17], "18");
+
+        > Current node is:17
+        > Current node is:12
+        > Current node is:18
+        > Found it!
+        */
+    </script>
+</body>
+</html>

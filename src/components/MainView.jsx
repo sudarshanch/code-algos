@@ -9,14 +9,14 @@ const MainView = () => {
     }, [location]);
     
     return (
-        <>
+        <div className='parent'>
             <div className='child1'>
                 <SideBarView></SideBarView>
             </div>
             <div className='child2'>
                 <ProfileComponent setLocation={setLocation}></ProfileComponent>
             </div>
-        </>
+        </div>
     )
 }
 

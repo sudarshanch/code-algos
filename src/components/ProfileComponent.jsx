@@ -7,12 +7,12 @@ const ProfileComponent = (props) => {
     },[]);
     return (
         <iframe
-        src="https://drive.google.com/file/d/1sHqRfRavSZ79sds9roDCb2A_77qAwORe/preview?usp=sharing"
-        frameBorder="0"
-        scrolling="auto"
-        height="100%"
-        width="55%"
-        title="profile"
+            src="https://drive.google.com/file/d/1sHqRfRavSZ79sds9roDCb2A_77qAwORe/preview?usp=sharing"
+            frameBorder="0"
+            scrolling="auto"
+            height="100%"
+            width="70%"
+            title="profile"
         ></iframe>
     )
 }

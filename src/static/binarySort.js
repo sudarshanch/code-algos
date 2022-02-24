@@ -21,36 +21,6 @@ function binarySort(arr, num) {
 binarySort([3,4,52,1,9,19,2,5,2], 5)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // // run `node index.js` in the terminal
 
 // console.log(`Hello Node.js v${process.versions.node}!`);

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximum Subarray</title>
+</head>
+<body>
+    <script>
+        function maxSubArray(nums) {
+            let curSum = Number.MIN_VALUE;//-Infinity;
+            let maxSum = 0;//-Infinity;
+            for (let i=0; i<nums.length;i++) {
+                curSum = Math.max(0, curSum);
+                curSum = curSum + nums[i];
+                maxSum = Math.max(maxSum,curSum);
+            }
+            console.log(maxSum);
+            return maxSum;
+        }
+        maxSubArray([-1, -4, 3, 6, 7, -2, -9]);
+    </script>
+</body>
+</html>

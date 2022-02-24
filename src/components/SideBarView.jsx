@@ -9,7 +9,7 @@ const SideBarView = () => {
                     <Link to="/code-algos/">My tech stack</Link>
                 </li>
                 <li>
-                    <Link to="/code-algos/one" activeclassname="active">View one</Link>
+                    <Link to="/code-algos/splash" activeclassname="active">Sampe App One</Link>
                 </li>
             </ul>
         </section>

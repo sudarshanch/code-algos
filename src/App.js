@@ -1,16 +1,20 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpenReader, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import FloatingWhatsApp from 'react-floating-whatsapp';
-
 import './App.css';
+import SideBarView from './components/SideBarView';
+import ProfileComponent from './components/ProfileComponent';
+import MainView from './components/MainView';
+import RandomSplashImages from './components/RandomUnSplashImages';
 
 const App = () => {
     const [appName, setAppName] = useState("  Sudarshan's Tech Journal");
     return (
         <div className='App'>
             <div id="header">
-                <h1>
+                <h1 className='mainHeader'>
                     <span className='readerBook'>
                         <FontAwesomeIcon icon={faBookOpenReader} />
                     </span>
@@ -18,14 +22,12 @@ const App = () => {
                 </h1>
             </div>
             <div id="content">
-                <iframe
-                    src="https://drive.google.com/file/d/1sHqRfRavSZ79sds9roDCb2A_77qAwORe/preview?usp=sharing"
-                    frameBorder="0"
-                    scrolling="yes"
-                    height="100%"
-                    width="55%"
-                    title="profile"
-                ></iframe>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/code-algos/" element={<MainView />}></Route>
+                            <Route path="/code-algos/splash" element={<RandomSplashImages />}></Route>
+                        </Routes>
+                    </BrowserRouter>
             </div>
             <div id="footer">
                 <div>Contact for any help in Fullstack / Frontend development using React, Angular or Java/ Sprint boot / Python</div>
