@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Depth of Binary Tree RC</title>
+</head>
+<body>
+    <script>
+        /**
+         * Definition for a binary tree node.
+         * function TreeNode(val, left, right) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.left = (left===undefined ? null : left)
+         *     this.right = (right===undefined ? null : right)
+         * }
+         */        
+        var maxDepth = function(root) {
+            if (root == null) {
+                return 0;
+            } else {
+                let leftDepth = maxDepth(root.left);
+                let rightDepth = maxDepth(root.right);
+                        console.log(leftDepth, rightDepth);
+
+                if (leftDepth > rightDepth) {
+                    return leftDepth + 1;
+                } else {
+                    return rightDepth + 1;
+                }
+            }
+        };
+        // maxDepth
+    </script>
+    
+</body>
+</html>
