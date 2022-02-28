@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy random list</title>
+</head>
+<body>
+    <script>
+    /**
+     * // Definition for a Node.
+     * function Node(val, next, random) {
+     *    this.val = val;
+     *    this.next = next;
+     *    this.random = random;
+     * };
+     */
+
+    /**
+     * @param {Node} head
+     * @return {Node}
+     */
+    var copyRandomList = function(head) {
+        let pmap = new Map(), 
+            dummy = {},
+            curr = head, 
+            copy = dummy;
+        while (curr) {
+            let newNode = new Node(curr.val, null, null)
+            pmap.set(curr, newNode)
+            copy.next = newNode, copy = newNode, curr = curr.next;
+        }
+        curr = head, copy = dummy.next;
+        while (curr) {
+            copy.random = pmap.get(curr.random)
+            curr = curr.next, copy = copy.next
+        }
+        return dummy.next;
+    };
+    </script>
+</body>
+</html>
