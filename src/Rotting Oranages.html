@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotting Oranges</title>
+</head>
+<body>
+    <script>
+
+        /**
+         * @param {number[][]} grid
+         * @return {number}
+         */
+        var orangesRotting = function(grid) {
+            if (grid.length == 0) return 0;
+            const directions = [[-1,0], [0, 1], [1,0], [0, -1]];
+            const ROTTEN = 2;
+            const FRESH = 1;
+            const EMTPY = 0;
+            const queue = [];
+            let freshOranges = 0;
+            
+            for (let row=0; row<grid.length;row++) {
+                for (let col=0; col<grid[0].length;col++) {
+                    if (grid[row][col] == ROTTEN) {
+                        queue.push([row, col]);
+                    }
+                    if (grid[row][col] == FRESH) {
+                        freshOranges++;
+                    }
+                }
+            }
+            
+            let currentQueueSize = queue.length;
+            let minuites = 0;
+            
+            while (queue.length) {
+                if (currentQueueSize == 0) {
+                    minuites++;
+                    currentQueueSize = queue.length;
+                }
+                const curOranage = queue.shift();
+                currentQueueSize--;
+                const row = curOranage[0];
+                const col = curOranage[1];
+                
+                
+                for(let i=0; i<directions.length;i++) {
+                    let curDir = directions[i];
+                    let nextRow = curDir[0] + row;
+                    let nextCol = curDir[1] + col;
+                    
+                    if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >=grid[0].length) {
+                        continue;
+                    }
+                    if (grid[nextRow][nextCol] == FRESH) {
+                        grid[nextRow][nextCol] == ROTTEN;
+                        freshOranges--;
+                        queue.push([nextRow, nextCol]);
+                    }
+                }
+            }
+            
+            if(freshOranges > 0) {
+                return -1;
+            }
+            return minuites;
+        };
+
+    </script>
+</body>
+</html>

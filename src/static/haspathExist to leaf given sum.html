@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root to leaf path sum equal to a given number</title>
+</head>
+<body>
+    <script>
+        // var root = new Node(10);
+        // root.left = new Node(8);
+        // root.right = new Node(2);
+        // hasPathExist(root, 21)
+        function hasPathExist(node, sum) {
+            let ans = false;
+            let subSum = sum - node.val;
+            if (subSum == 0 && node.left == null && node.right==null) {
+                ans = true;
+                return ans;
+            }
+            if (node.left !=null) {
+                ans = ans || hasPathExist(node.left, subSum);
+            }
+            if (node.right !=null) {
+                ans = ans || hasPathSum(node.right, subSum);   
+            }
+            return ans;
+        }
+    </script>
+</body>
+</html>
