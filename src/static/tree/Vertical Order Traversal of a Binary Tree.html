@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Calculate Horizontal distance
+        /*
+            For root HD = 0
+            For left child : HD = HD of parent - 1
+            FOr right child : HD = HD of parent + 1
+        */
+       // https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+
+        
+        var verticalTraversal = function(root) {
+            let ans = []
+            const rc = (node, x, y) => {
+                ans.push((x << 20) + (y << 10) + node.val);
+                
+                if (node.left) rc(node.left, x-1, y+1)
+                if (node.right) rc(node.right, x+1, y+1)
+            }
+            
+            rc(root, 1000, 0);
+            
+            ans.sort((a,b) => a - b);
+            
+            for (let l = r = 0; r < ans.length; r = ++l) {
+                let curr = ans[l] >> 20
+                while (ans[r] >> 20 == curr) r++
+                let group = ans.slice(l,r).map(el => el & (1 << 10) - 1)
+                ans.splice(l, r-l, group)
+            }
+            return ans;
+        };       
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary SORT .. Take the mid point using both pointers</title>
+</head>
+<body>
+    <script>
+        function binarySort(arr, num) {
+            let a1 = arr.sort((a,b) => a - b);
+            let mid = 0;
+            let start = 0;
+            let end = a1.length - 1;
+            console.log('binary', a1);
+            while(start <= end) {
+                mid = Math.floor((start + end)/2);
+                if (a1[mid] == num) {
+                    console.log('Found', a1[mid]);
+                    return a1[mid];
+                } else if (num > a1[mid]) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            }
+            return -1;
+        }
+
+        binarySort([3,4,52,1,9,19,2,5,2], 5)        
+    </script>
+    
+</body>
+</html>

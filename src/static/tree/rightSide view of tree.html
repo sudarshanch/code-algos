@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Given a binary tree, imagine your Standing right side of binary tree, print from top to bottom which are </title>
+</head>
+<body>
+    <script>
+
+        /**
+         * Definition for a binary tree node.
+         * function TreeNode(val, left, right) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.left = (left===undefined ? null : left)
+         *     this.right = (right===undefined ? null : right)
+         * }
+         */
+        /**
+         * @param {TreeNode} root
+         * @return {number[]}
+         */        
+        
+        // obstructed from the view, left side
+        // some nodes of the tree not obsctured must go inside on the leftside
+        // [1, 3, 6, 7, 8]
+        // BFS or DFS ? thinking about --both are valid here
+        // BFS go by level by level
+        // 1. identify the end of the level
+        // 2. add last node to result
+        // res = []
+        // instantiate the QUEUE
+        // DFS:
+        // 1. prioritize the right side
+        // 2. keep track level of order
+
+        function rightSideViewTreeDFS (root) {
+            const result = [];
+            dfs(root, 0, result);
+            return result;
+        }
+
+        const dfs = function (node, currentLevel, result) {
+            // check is a valid node
+            if (!node) return;
+
+            // whether or not push the result
+            if (currentLevel >= result.length) {
+                result.push(node.value);
+            }
+
+            if(node.right) {
+                dfs(node.right, currentLevel + 1, result);
+            }
+
+            if (node.left) {
+                dfs(node.left, currentLevel + 1, result);
+            }
+        }
+    </script>
+</body>
+</html>

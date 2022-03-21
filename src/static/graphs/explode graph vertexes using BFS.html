@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode Graph using Breadth first search</title>
+</head>
+<body>
+    <script>
+        const traversalBFS = function(graph) {
+            const queue = [0]; // 0 node in graph diagram
+            const values = [];
+            const seen = {};
+            while (queue.length) {
+                const vertex = queue.shift();
+                values.push(vertex);
+                seen[vertex] = true;
+
+                const connections = graph[vertex];
+                for (let i=0; i<connections.length;i++) {
+                    const connection = connections[i];
+                    if (!seen[connection]) {
+                        queue.push(connection);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

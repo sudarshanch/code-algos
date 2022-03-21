@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode Graph using Depth first search - Recursion</title>
+</head>
+<body>
+    <script>
+        // Adjacency  list DS represents, nodes, vertexes, neighours, vertices
+        /*
+            [
+                [1,3],
+                [0],
+                [3,8],
+                [0,4,5,2],
+                [3,6]
+                [3],
+                [4,7],
+                [6]
+                [2]
+            ]
+        */
+        const adjancyList = [
+                [1,3],
+                [0],
+                [3,8],
+                [0,4,5,2],
+                [3,6]
+                [3],
+                [4,7],
+                [6]
+                [2]
+            ];
+        const traversalDFS = function(vertex, graph= [], values = [], seen = {}) {
+            values.push(vertex);
+            seen[vertex] = true;
+            const connections = graph[vertex];
+            for (let i=0; i<connections.length; i++) {
+                const connection = connections[i];
+                if (!seen[connection]) {
+                    traversalDFS(connection, graph, values, seen);
+                }
+            }
+        }
+        traversalDFS(adjancyList);
+    </script>
+</body>
+</html>

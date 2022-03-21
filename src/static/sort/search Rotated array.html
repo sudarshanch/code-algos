@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and element in a sorted and rotated array</title>
+</head>
+<body>
+    <script>
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number}
+     */
+    var search = function(nums, target) {
+        // modified binary search
+        // [4,5,6,7,0,1,2] => [0,1,2,4,5,6,7]
+        if (nums.length == 0) return -1;
+        let left = 0;
+        let right = nums.length - 1;
+        
+        while (left < right) {
+            let mid = Math.floor((left+right)/2);
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        console.log(left, right);
+
+        let start = left;
+        left = 0;
+        right = nums.length - 1;
+        
+        if (target >= nums[start] && target <= nums[right]) {
+            left = start;
+        } else {
+            console.log(start)
+            right = start;
+        }
+        while(left <= right) {
+            let mid = Math.floor((right + left)/2);
+            if (nums[mid] == target) {
+                return mid;
+            } else if (target > nums[mid]) {
+                left = mid + 1;
+            } else if (target < nums[mid]) {
+                right = mid - 1;
+            }
+        }  
+    };
+
+    console.log(search([4,5,6,7,0,1,2], 5))
+
+    </script>
+</body>
+</html>
