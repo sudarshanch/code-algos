@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        The cost of a stock on each day is given in an array, find the max profit that you can make by buying and selling in those days. For example, if the given array is {100, 180, 260, 310, 40, 535, 695}, the maximum profit can earn by buying on day 0, selling on day 3. Again, buy on day 4 and sell on day 6. If the given array of prices is sorted in decreasing order, then profit cannot be earned at all.
+
+    </title>
+</head>
+<body>
+    <script>
+
+        // Javascript implementation of the approach
+        
+        // Function to return the maximum profit
+        // that can be made after buying and
+        // selling the given stocks
+        function maxProfit( price, start, end)
+        {
+        
+            // If the stocks can't be bought
+            if (end <= start)
+                return 0;
+        
+            // Initialise the profit
+            let profit = 0;
+        
+            // The day at which the stock
+            // must be bought
+            for (let i = start; i < end; i++) {
+        
+                // The day at which the
+                // stock must be sold
+                for (let j = i + 1; j <= end; j++) {
+        
+                    // If buying the stock at ith day and
+                    // selling it at jth day is profitable
+                    if (price[j] > price[i]) {
+        
+                        // Update the current profit
+                        let curr_profit = price[j] - price[i]
+                                        + maxProfit(price, start, i - 1)
+                                        + maxProfit(price, j + 1, end);
+        
+                        // Update the maximum profit so far
+                        profit = Math.max(profit, curr_profit);
+                    }
+                }
+            }
+            return profit;
+        }
+        
+            // Driver program
+            
+            let price = [ 100, 180, 260, 310,
+                            40, 535, 695 ];
+            let n = price.length;
+        
+            document.write(maxProfit(price, 0, n - 1));
+            
+        </script>
+        
+</body>
+</html>

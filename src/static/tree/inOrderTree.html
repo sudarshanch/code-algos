@@ -11,6 +11,8 @@
         //  Binary Tree Inorder Traversal
         // Given the root of a binary tree, return the inorder traversal of its nodes' values.
 
+        // Input: root = [1,null,2,3]
+        // Output: [1,3,2]
         const inorderTree = function(root) {
             const res = [];
             helper(root, res);
@@ -29,6 +31,34 @@
 
         // In case of Pre order -> NLR
         // In case of post order -> LRN
+
+
+
+
+        /*
+
+        var inorderTraversal = function(root, res=[]) {
+            
+            // LNR
+            
+            if (!root) return [];
+            console.log(root);
+            if (root.left) {
+            // res.push(root.left.val);
+                inorderTraversal(root.left, res);
+            }
+            res.push(root.val);
+            
+            if (root.right) {
+                //res.push(root.right.val);      
+                inorderTraversal(root.right, res);
+            }
+            
+            return res;
+            
+        };
+
+        */
     </script>
 </body>
 </html>

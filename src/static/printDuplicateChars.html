@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Duplicate Chars from Input arr</title>
+</head>
+<body>
+    <script>
+        // TODO
+        let printDuplicateChars = () => {
+            let inputArr = ["clock","coco", "clookc"];
+            // cc =>
+            // Out put : [c, o, c]
+
+            let output = [];
+            // Input : [cool,lock,cook]
+            // Out put : [c, o]
+            let m1 = {};
+            for (let i=0; i<inputArr.length;i++) {
+                //console.log(inputArr[i]);
+                for (let j=0;j<inputArr[i].length;j++) {
+                    let count = 1;
+                    let currStr = inputArr[i][j];
+                    if (!m1[currStr]) {
+                        m1[currStr] = count;
+                    } else {
+                        m1[currStr] = count + 1;
+                    }
+                }
+            }
+
+            //console.log(m1);
+
+            for (let index = 0; index < inputArr.length; index++) {
+                const element = inputArr[index];
+                for (const key in m1) {
+                    if (element.indexOf(key) >= 0) {
+                        console.log(key + ":" + element);
+                    }
+                    
+                }
+                
+            }
+
+            // for ([key, val] of m1) {
+            //     console.log(key, val);
+            // }
+            // let firtCharVal;
+            // for (const key in m1) {
+            //     if (!firtCharVal) {
+            //         firtCharVal = m1[key];
+            //     }
+            //     // inputArr.length == firtCharVal
+            //     if (firtCharVal == m1[key]) {
+            //         output.push(key)
+            //     }
+            //     // console.log(m1[key], key);
+            // }
+
+
+
+
+            // inputArr.map((item, idx) => {
+            //     for (const key in m1) {
+            //         let idxofArr = item.includes(key);
+            //         if (idxofArr) {
+            //            // output.push(key);
+            //            console.log("Testing Val",idxofArr, item, key);
+            //         } else {
+            //             //let a1 = item.indexOf(key);
+            //             //output.splice(a1, key);
+            //             //console.log("Testing Val",idxofArr, item, key);
+            //         }
+            //     }
+            // });
+
+            console.log("Final Output", output);
+
+        }
+
+        printDuplicateChars();
+    </script>
+</body>
+</html>

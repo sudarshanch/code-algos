@@ -40,7 +40,22 @@
             }
             return null;
         }
-        addIndexes([19, 18, 10, 11, 2, 3], 13);
+       // addIndexes([19, 18, 10, 11, 2, 3], 13);
+
+
+        function addIndexesZERO(nums) {
+            for (let p1=0; p1<nums.length; p1++) {
+                for (let p2=p1+1; p2<nums.length; p2++) {
+                    //console.log(targetToFind, nums[p2]);
+                    if((nums[p1] - nums[p2]) == 0) {
+                        console.log(p1, p2);
+                        return [p1, p2];
+                    }
+                }
+            }
+            return null;
+        }
+        addIndexesZERO([19, 18, 10, 11, 2, 3, 10]);
     </script>
     
 </body>

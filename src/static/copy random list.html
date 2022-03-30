@@ -29,7 +29,9 @@
         while (curr) {
             let newNode = new Node(curr.val, null, null)
             pmap.set(curr, newNode)
-            copy.next = newNode, copy = newNode, curr = curr.next;
+            copy.next = newNode, 
+            copy = newNode, 
+            curr = curr.next;
         }
         curr = head, copy = dummy.next;
         while (curr) {
